@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import CalculatorScreen from './screens/CalculatorScreen';
+import CalculatorScreen from './pages/CalculatorPage';
 
 function App(): React.JSX.Element {
   return <CalculatorScreen />;
