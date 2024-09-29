@@ -6,15 +6,10 @@
  */
 
 import React from 'react';
-import {SafeAreaProvider} from 'react-native-safe-area-context';
-import DemoScreen from './screens/DemoScreen';
+import CalculatorScreen from './screens/CalculatorScreen';
 
 function App(): React.JSX.Element {
-  return (
-    <SafeAreaProvider>
-      <DemoScreen />
-    </SafeAreaProvider>
-  );
+  return <CalculatorScreen />;
 }
 
 export default App;
