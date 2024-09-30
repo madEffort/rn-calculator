@@ -1,20 +1,23 @@
 import React from 'react';
-import { SafeAreaView, Text } from 'react-native';
+import { SafeAreaView, StyleSheet, Text } from 'react-native';
 import { useCalculator } from '../hooks';
 import { Button, InputContainer, ButtonContainer } from '../components';
 
-
 const CalculatorPage = () => {
-
-  const {input, currentOperator, hasInput,
-        onPressNum, onPressConvert, onPressOperator, onPressReset} = useCalculator();
+  const {
+    input,
+    currentOperator,
+    hasInput,
+    onPressNum,
+    onPressConvert,
+    onPressOperator,
+    onPressReset,
+  } = useCalculator();
 
   return (
-    <SafeAreaView style={{ flex: 1, justifyContent: 'center' }}>
+    <SafeAreaView style={styles.container}>
       <InputContainer>
-        <Text style={{ color: '#fff', fontSize: 50, textAlign: 'right' }}>
-          {input}
-        </Text>
+        <Text style={styles.inputText}>{input}</Text>
       </InputContainer>
       <ButtonContainer>
         <Button
@@ -47,8 +50,9 @@ const CalculatorPage = () => {
         />
       </ButtonContainer>
       <ButtonContainer>
-        {[7, 8, 9].map(num => (
-          <Button type="num"
+        {[7, 8, 9].map((num) => (
+          <Button
+            type="num"
             text={`${num}`}
             onPress={() => onPressNum(num)}
             flex={1}
@@ -65,7 +69,7 @@ const CalculatorPage = () => {
         />
       </ButtonContainer>
       <ButtonContainer>
-        {[4, 5, 6].map(num => (
+        {[4, 5, 6].map((num) => (
           <Button
             type="num"
             text={`${num}`}
@@ -84,7 +88,7 @@ const CalculatorPage = () => {
         />
       </ButtonContainer>
       <ButtonContainer>
-        {[1, 2, 3].map(num => (
+        {[1, 2, 3].map((num) => (
           <Button
             type="num"
             text={`${num}`}
@@ -121,5 +125,17 @@ const CalculatorPage = () => {
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  inputText: {
+    color: '#fff',
+    fontSize: 50,
+    textAlign: 'right',
+  },
+});
 
 export default CalculatorPage;
